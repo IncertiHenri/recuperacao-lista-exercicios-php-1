@@ -13,6 +13,7 @@
     <?php
 
     include("funcoes.php");
+    include("atividade_15.php");
 
     $x = 67;
     $y = 42;
@@ -91,6 +92,26 @@
 
     echo "<h2>Gerar senha automática</h2>";
     echo "Senha gerada pelo sistema: " . $senhaGerada;
+
+    $pedido = [
+    ["nome produto" => "Filé à Parmegiana", "quantidade" => 2, "valor unitario" => 42.90],
+    ["nome produto" => "Lasanha Bolonhesa", "quantidade" => 3, "valor unitario" => 35.50],
+    ["nome produto" => "Risoto de Camarão", "quantidade" => 1, "valor unitario" => 58.90],
+    ["nome produto" => "Strogonoff de Frango", "quantidade" => 4, "valor unitario" => 29.90],
+    ["nome produto" => "Nhoque ao Molho Branco", "quantidade" => 2, "valor unitario" => 32.50]
+];
+
+    $resultado = processarPedido($pedido);
+
+    echo "<h2>Desafio</h2>";
+    echo "Quantidade de produtos diferentes: " . $resultado["quantidade produtos diferentes"] . "<br>";
+    echo "Quantidade total de itens: " . $resultado["quantidade total de itens"] . "<br>";
+    echo "Produto mais caro: " . $resultado["produto mais caro"] . "<br>";
+    echo "Maior subtotal: R$ " . $resultado["maior subtotal"] . "<br>";
+    echo "Valor com desconto: R$ " . $resultado["desconto aplicado"]["valor com desconto"] . "<br>";
+    echo "Frete: R$ " . $resultado["frete"]["valor frete"] . "<br>";
+    echo "Valor final: R$ " . $resultado["valor final"] . "<br>";   
+
 
     ?>
 
